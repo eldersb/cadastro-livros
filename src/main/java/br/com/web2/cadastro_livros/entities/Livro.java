@@ -17,10 +17,11 @@ public class Livro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String titulo;
     private String resumo;
-    private String QuantidadeDePaginas;
+    private int quantidadeDePaginas;
     private String autores;
     private String categoria;
 

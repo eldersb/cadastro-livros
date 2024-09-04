@@ -40,9 +40,7 @@ public class CadastroLivroController {
         return ResponseEntity.created(null).body(livro);
     }
 
-    @PutMapping
-
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Livro> remove(@PathVariable Long id) {
         Optional<Livro> livro = cadastroLivrosService.findById(id);
 
@@ -53,6 +51,7 @@ public class CadastroLivroController {
         cadastroLivrosService.remove(id);
 
         return ResponseEntity.ok().body(null);
+
     }
 
 }

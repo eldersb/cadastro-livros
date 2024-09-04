@@ -11,7 +11,9 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -30,40 +32,23 @@ public class CadastroLivroController {
     public ResponseEntity<Livro> findById(@PathVariable Long id) throws ResourceNotFoundException {
 
         return ResponseEntity.ok(cadastroLivrosService.findById(id));
-
-
-
-//        Optional<Livro> livro = cadastroLivrosService.findById(id);
-//
-//        if (livro.isEmpty()){
-//            return ResponseEntity.notFound().build();
-//        }
-//
-//        return ResponseEntity.ok().body(livro.get());
     }
 
     @PostMapping
     public ResponseEntity<Livro> insert(@RequestBody LivroRequest livroRequest) {
         Livro livro = cadastroLivrosService.insert(livroRequest);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(livro);
 
-//        cadastroLivrosService.insert(livro);
-//
-//        return ResponseEntity.created(null).body(livro);
     }
 
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Livro> remove(@PathVariable Long id) {
-//        Optional<Livro> livro = cadastroLivrosService.findById(id);
-//
-//        if (livro.isEmpty()){
-//            return ResponseEntity.notFound().build();
-//        }
-//
-//        cadastroLivrosService.remove(id);
-//
-//        return ResponseEntity.ok().body(null);
-//
-//    }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleException (ResourceNotFoundException ex){
+        Map<String, String> responseMessage = new HashMap<>();
+        responseMessage.put("messege", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseMessage);
+    }
+
 
 }

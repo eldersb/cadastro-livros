@@ -33,14 +33,6 @@ public class CadastroLivrosService {
 
     }
 
-//    public void remove(Long id) {
-//        Optional<Livro> livro = findById(id);
-//
-//        if (livro.isPresent()) {
-//            livroRepository.delete(livro.get());
-//        }
-//    }
-
     public Livro findById(Long id) throws ResourceNotFoundException {
         Optional<Livro> livroOptional = livroRepository.findById(id);
 
@@ -50,8 +42,6 @@ public class CadastroLivrosService {
 
         return livroOptional.get();
     }
-
-
 
 
 }

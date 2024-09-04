@@ -3,7 +3,7 @@
 Atividade de Desenvolvimento Web 2
 - Elder Borges
 - Thales Almeida
-- Diego
+- Diego Costa
 
 ## Tecnologias Utilizadas
 * Spring Boot
@@ -14,4 +14,4 @@ Atividade de Desenvolvimento Web 2
   ![atividade-web2](https://github.com/user-attachments/assets/9b47c448-6aab-44c6-87b7-beda3ade16ef)
 
   ## Colletion Postman (Nesse caso, está acessando sem um url base)
-[CursoDeFerias.postman_collection.json](https://github.com/user-attachments/files/16872094/CursoDeFerias.postman_collection.json)
+  [CursoDeFerias.postman_collection.json](https://github.com/user-attachments/files/16872094/CursoDeFerias.postman_collection.json)
